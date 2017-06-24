@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8D4E50C3-B65B-43C4-97C0-BA1C7FF6B24D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThesisManager.Core</RootNamespace>
+    <AssemblyName>ThesisManager.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.2\lib\net461\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop, Version=2.0.1.45000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spring.Aop.2.0.1\lib\net45\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=2.0.1.45000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spring.Core.2.0.1\lib\net45\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data, Version=2.0.1.45000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spring.Data.2.0.1\lib\net45\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate4, Version=2.0.1.45000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spring.Data.NHibernate4.2.0.1\lib\net45\Spring.Data.NHibernate4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.105.2, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.105.2\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Domain\Core\DomainEntity.cs" />
+    <Compile Include="src\Domain\Core\DomainEntityWithId.cs" />
+    <Compile Include="src\Domain\Core\DomainEntityWithIdAndName.cs" />
+    <Compile Include="src\Domain\Mappings\Core\DomainEntityMap.cs" />
+    <Compile Include="src\Domain\Mappings\Core\DomainEntityWithIdAndNameMap.cs" />
+    <Compile Include="src\Domain\Mappings\Core\DomainEntityWithIdMap.cs" />
+    <Compile Include="src\Domain\Mappings\FluentSessionFactory.cs" />
+    <Compile Include="src\Domain\Mappings\UserMap.cs" />
+    <Compile Include="src\Domain\User.cs" />
+    <Compile Include="src\Domain\UserPermission.cs" />
+    <Compile Include="src\Domain\UserType.cs" />
+    <Compile Include="src\Exceptions\DuplicateEntityNameException.cs" />
+    <Compile Include="src\Exceptions\DuplicateValueException.cs" />
+    <Compile Include="src\Exceptions\ObjectReferencedException.cs" />
+    <Compile Include="src\Exceptions\UserOperationException.cs" />
+    <Compile Include="src\Persistence\Core\ActiveDirectory\ActiveDirectoryDao.cs" />
+    <Compile Include="src\Persistence\Core\ActiveDirectory\ActiveDirectoryUserProperty.cs" />
+    <Compile Include="src\Persistence\Core\ActiveDirectory\ActiveDirectoryUserPropertyAttribute.cs" />
+    <Compile Include="src\Persistence\Core\ActiveDirectory\ExtensionMethods.cs" />
+    <Compile Include="src\Persistence\Core\ActiveDirectory\IActiveDirectoryDao.cs" />
+    <Compile Include="src\Persistence\Core\ActiveDirectory\UserNtInformation.cs" />
+    <Compile Include="src\Persistence\Core\DomainEntityDao.cs" />
+    <Compile Include="src\Persistence\Core\DomainEntityWithIdAndNameDao.cs" />
+    <Compile Include="src\Persistence\Core\DomainEntityWithIdDao.cs" />
+    <Compile Include="src\Persistence\Core\FluentHibernate\FluentDomainEntityWithIdAndNameDao.cs" />
+    <Compile Include="src\Persistence\Core\FluentHibernate\IFluentDomainEntityWithIdAndNameDao.cs" />
+    <Compile Include="src\Persistence\Core\FluentHibernate\Member.cs" />
+    <Compile Include="src\Persistence\Core\IDomainEntityDao.cs" />
+    <Compile Include="src\Persistence\Core\IDomainEntityWithIdAndNameDao.cs" />
+    <Compile Include="src\Persistence\Core\IDomainEntityWithIdDao.cs" />
+    <Compile Include="src\Persistence\ILdapDao.cs" />
+    <Compile Include="src\Persistence\IUserDao.cs" />
+    <Compile Include="src\Persistence\LdapDao.cs" />
+    <Compile Include="src\Persistence\TestData.cs" />
+    <Compile Include="src\Persistence\UserDao.cs" />
+    <Compile Include="src\Service\Core\DomainEntityService.cs" />
+    <Compile Include="src\Service\Core\DomainEntityWithIdAndNameService.cs" />
+    <Compile Include="src\Service\Core\DomainEntityWithIdService.cs" />
+    <Compile Include="src\Service\Core\IDomainEntityService.cs" />
+    <Compile Include="src\Service\Core\IDomainEntityWithIdAndNameService.cs" />
+    <Compile Include="src\Service\Core\IDomainEntityWithIdService.cs" />
+    <Compile Include="src\Service\IUserService.cs" />
+    <Compile Include="src\Service\UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Spring.Database.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Spring.Persistence.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Spring.Service.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Spring.TestData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Config\SqLiteProvider_1.0.105.2.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.2\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Dieses Projekt verweist auf mindestens ein NuGet-Paket, das auf diesem Computer fehlt. Verwenden Sie die Wiederherstellung von NuGet-Paketen, um die fehlenden Dateien herunterzuladen. Weitere Informationen finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=322105". Die fehlende Datei ist "{0}".</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.105.2\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+</Project>

@@ -1,0 +1,31 @@
+﻿@using System;
+@using ThesisManager.Web.Helper
+
+@model ThesisManager.Web.Models.Account.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">@ViewBag.Title</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
+        {
+            @Html.ValidationSummary(true)
+
+            @Html.AntiForgeryToken()
+            @Html.BootstrapLabelAndTextBoxFor(m => m.Login)
+            @Html.BootstrapLabelAndPasswordFor(m => m.Password)
+
+            <p>
+                <button id="btn_login" class="btn btn-primary" type="submit">Login</button>
+            </p>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
