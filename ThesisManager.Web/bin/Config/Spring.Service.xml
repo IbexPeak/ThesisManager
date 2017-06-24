@@ -10,10 +10,10 @@
 
   <object id="userService"
           type="ThesisManager.Core.Service.UserService, ThesisManager.Core">
-    <property name="UserDao"
-              ref="userDao" />
-    <property name="LdapDao"
-              ref="ldapDao" />
+    <property name="UserDbDao"
+              ref="userDbDao" />
+    <property name="UserLdapDao"
+              ref="userLdapDao" />
   </object>
 
 </objects>

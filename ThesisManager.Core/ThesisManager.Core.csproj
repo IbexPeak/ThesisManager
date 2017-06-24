@@ -105,11 +105,11 @@
     <Compile Include="src\Persistence\Core\IDomainEntityDao.cs" />
     <Compile Include="src\Persistence\Core\IDomainEntityWithIdAndNameDao.cs" />
     <Compile Include="src\Persistence\Core\IDomainEntityWithIdDao.cs" />
-    <Compile Include="src\Persistence\ILdapDao.cs" />
-    <Compile Include="src\Persistence\IUserDao.cs" />
-    <Compile Include="src\Persistence\LdapDao.cs" />
+    <Compile Include="src\Persistence\IUserLdapDao.cs" />
+    <Compile Include="src\Persistence\IUserDbDao.cs" />
+    <Compile Include="src\Persistence\UserLdapDao.cs" />
     <Compile Include="src\Persistence\TestData.cs" />
-    <Compile Include="src\Persistence\UserDao.cs" />
+    <Compile Include="src\Persistence\UserDbDao.cs" />
     <Compile Include="src\Service\Core\DomainEntityService.cs" />
     <Compile Include="src\Service\Core\DomainEntityWithIdAndNameService.cs" />
     <Compile Include="src\Service\Core\DomainEntityWithIdService.cs" />

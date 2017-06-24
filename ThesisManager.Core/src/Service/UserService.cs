@@ -15,19 +15,19 @@
         ///     Ruft das Data-Access-Object ab, welches für den Zugriff auf die Persistence-Schicht verwendet wird.
         /// </summary>
         protected override IDomainEntityWithIdDao<User> IdDao {
-            get { return UserDao; }
+            get { return UserDbDao; }
             set { throw new NotImplementedException(); }
         }
 
         /// <summary>
-        ///     Liefert oder setzt den <see cref="ILdapDao" />. Wird von Spring gesetzt.
+        ///     Liefert oder setzt den <see cref="IUserDbDao" />. Wird von Spring gesetzt.
         /// </summary>
-        protected ILdapDao LdapDao { get; set; }
+        protected IUserDbDao UserDbDao { get; set; }
 
         /// <summary>
-        ///     Liefert oder setzt den <see cref="IUserDao" />. Wird von Spring gesetzt.
+        ///     Liefert oder setzt den <see cref="IUserLdapDao" />. Wird von Spring gesetzt.
         /// </summary>
-        protected IUserDao UserDao { get; set; }
+        protected IUserLdapDao UserLdapDao { get; set; }
 
         /// <summary>
         ///     Prüft ob ein Nutzer eingeloggt werden kann.
@@ -42,7 +42,7 @@
             if (password == null) {
                 throw new ArgumentNullException(nameof(password));
             }
-            return LdapDao.CanLogin(login, password);
+            return UserLdapDao.CanLogin(login, password);
         }
 
         /// <summary>
@@ -58,14 +58,14 @@
             if (userPermissions == null) {
                 throw new ArgumentNullException(nameof(userPermissions));
             }
-            if (!LdapDao.IsUserExisting(login)) {
+            if (!UserLdapDao.IsUserExisting(login)) {
                 throw new InvalidOperationException();
             }
             User user = new User(login, userType, userPermissions);
 
-            UserDao.Save(user);
+            UserDbDao.Save(user);
 
-            LdapDao.SetupUser(user);
+            UserLdapDao.SetupUser(user);
 
             return user;
         }
@@ -76,9 +76,9 @@
         /// <param name="login">Der Login</param>
         /// <returns></returns>
         public User Get(string login) {
-            User user = UserDao.GetUser(login);
+            User user = UserDbDao.GetUser(login);
 
-            LdapDao.SetupUser(user);
+            UserLdapDao.SetupUser(user);
 
             return user;
         }
@@ -96,11 +96,11 @@
             if (userPermissions == null) {
                 throw new ArgumentNullException(nameof(userPermissions));
             }
-            User user = UserDao.GetUser(login);
+            User user = UserDbDao.GetUser(login);
 
             user.UpdateUser(userType, userPermissions);
 
-            UserDao.Save(user);
+            UserDbDao.Save(user);
 
             return user;
         }

@@ -9,13 +9,13 @@
          xmlns:tx="http://www.springframework.net/tx">
 
   <!-- Datenbankobjekte -->
-  <object id="userDao"
-          type="ThesisManager.Core.Persistence.UserDao, ThesisManager.Core">
+  <object id="userDbDao"
+          type="ThesisManager.Core.Persistence.UserDbDao, ThesisManager.Core">
     <property name="SessionFactory"
               ref="sessionFactory" />
   </object>
-  <object id="ldapDao"
-          type="ThesisManager.Core.Persistence.LdapDao, ThesisManager.Core">
+  <object id="userLdapDao"
+          type="ThesisManager.Core.Persistence.UserLdapDao, ThesisManager.Core">
   </object>
 
 </objects>

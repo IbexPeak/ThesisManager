@@ -3,9 +3,9 @@
     using ThesisManager.Core.Persistence.Core;
 
     /// <summary>
-    ///     Schnittstelle für den Dao für die die Verwaltung von <see cref="User" />.
+    ///     Schnittstelle für den DB-Dao für die Verwaltung von <see cref="User" />.
     /// </summary>
-    public interface IUserDao : IDomainEntityWithIdDao<User> {
+    public interface IUserDbDao : IDomainEntityWithIdDao<User> {
         /// <summary>
         ///     Liefert einen <see cref="User" /> anhand des Logins.
         /// </summary>

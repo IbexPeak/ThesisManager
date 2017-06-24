@@ -6,7 +6,10 @@
 
     using ThesisManager.Core.Domain;
 
-    public class LdapDao : ILdapDao {
+    /// <summary>
+    /// Bildet einen Dao mit Zugriff auf das Ldap ab.
+    /// </summary>
+    public class UserLdapDao : IUserLdapDao {
         private readonly IList<User> _users = new List<User>();
 
         public bool CanLogin(string login, string password) {

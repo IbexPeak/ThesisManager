@@ -4,9 +4,9 @@
     using ThesisManager.Core.Domain;
 
     /// <summary>
-    ///     Schnittstelle für einen Dao, der eine Verbindung zum LDAP hat. Dies wird für die Nutzer benötigt.
+    ///     Schnittstelle für einen Dao, der eine Verbindung zum LDAP hat. Dies wird für die <see cref="User"/> benötigt.
     /// </summary>
-    public interface ILdapDao {
+    public interface IUserLdapDao {
         /// <summary>
         ///     Prüft ob ein Nutzer eingeloggt werden kann.
         /// </summary>

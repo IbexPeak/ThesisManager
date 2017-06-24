@@ -11,9 +11,9 @@
   <object id="testData"
           type="ThesisManager.Core.Persistence.TestData, ThesisManager.Core">
 
-    <property name="UserDao"
-              ref="userDao" />
+    <property name="UserDbDao"
+              ref="userDbDao" />
     <property name="UserLdapDao"
-              ref="ldapDao" />
+              ref="userLdapDao" />
   </object>
 </objects>

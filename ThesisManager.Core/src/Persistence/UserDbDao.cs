@@ -7,9 +7,9 @@
     using ThesisManager.Core.Persistence.Core.FluentHibernate;
 
     /// <summary>
-    ///     Ein Dao für die Verwaltung von <see cref="User" />.
+    ///     Ein DB-Dao für die Verwaltung von <see cref="User" />.
     /// </summary>
-    public class UserDao : DomainEntityWithIdDao<User>, IUserDao {
+    public class UserDbDao : DomainEntityWithIdDao<User>, IUserDbDao {
         /// <summary>
         ///     Liefert einen <see cref="User" /> anhand des Logins.
         /// </summary>
