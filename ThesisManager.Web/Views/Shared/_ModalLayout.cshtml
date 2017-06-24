@@ -1,0 +1,41 @@
+﻿@{
+    HtmlHelper.ClientValidationEnabled = true;
+    HtmlHelper.UnobtrusiveJavaScriptEnabled = true;
+}
+
+<div class="modal-dialog" id="@Page.Session.SessionID.ToString()">
+    <div class="modal-content" id="modal-div">
+        <div class="modal-header">
+            <button type="button" class="close" onclick="modal.hideModalDiv()" aria-hidden="true">
+                &times;
+            </button>
+            <h4 class="modal-title">@ViewBag.Title</h4>
+        </div>
+        <div class="modal-body">
+            @RenderBody()
+        </div>
+        <div class="modal-footer">
+            @if (IsSectionDefined("Footer")) {
+                @RenderSection("Footer")
+            } else {
+                if (string.IsNullOrEmpty(ViewBag.CancelTitle)) {
+                    ViewBag.CancelTitle = "Abbrechen";
+                }
+                if (string.IsNullOrEmpty(ViewBag.SubmitTitle)) {
+                    ViewBag.SubmitTitle = "OK";
+                }
+
+                <button type="button" class="btn btn-default" onclick="modal.hideModalDiv() ">
+                    @ViewBag.CancelTitle
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    @ViewBag.SubmitTitle
+                </button>
+            }
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/hint")
+@Scripts.Render("~/bundles/modal-buttons")
+@Scripts.Render("~/bundles/bootstrap-datepicker")

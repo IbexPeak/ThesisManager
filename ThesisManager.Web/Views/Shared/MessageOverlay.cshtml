@@ -1,0 +1,20 @@
+﻿@model ThesisManager.Web.Models.Shared.MessageViewModel
+
+
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "_ModalLayout.cshtml";
+}
+
+@Html.DisplayFor(m => m.Message)
+
+@section Footer {
+    <button type="button" class="btn btn-default" onclick="modal.hideModalDiv() ">
+        OK
+    </button>
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section PageId{
+    Message_Overlay
+}

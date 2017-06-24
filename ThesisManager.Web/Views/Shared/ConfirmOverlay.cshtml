@@ -1,0 +1,17 @@
+﻿@model ThesisManager.Web.Models.Shared.ConfirmDialogViewModel
+
+@{
+    Layout = "~/Views/Shared/_ModalLayout.cshtml";
+    ViewBag.Title = Model.Title;
+    ViewBag.SubmitTitle = "OK";
+}
+
+@using (Html.BeginForm(Model.Action, Model.Controller, new { id = Model.Id }, FormMethod.Post, new { role = "form", @class = "form-horizontal" })) {
+    @Html.AntiForgeryToken()
+    @Html.DisplayFor(m => m.ConfirmationText)
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section PageId{
+    Confirm_Overlay
+}

@@ -5,11 +5,17 @@
     using ThesisManager.Core.Domain;
 
     public class TestData {
+
+        private bool _isTestDataGenerated;
+
         public IUserDao UserDao { private get; set; }
 
         public ILdapDao UserLdapDao { private get; set; }
 
         public void GenerateTestData() {
+            if (_isTestDataGenerated) {
+                return;
+            }
             ClearTestData();
 
             string login1 = "s74022";
@@ -48,6 +54,8 @@
 
             UserDao.Save(dbUser1);
             UserDao.Save(dbUser2);
+
+            _isTestDataGenerated = true;
         }
 
         private void ClearTestData() {

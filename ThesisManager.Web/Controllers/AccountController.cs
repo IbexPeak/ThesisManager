@@ -8,7 +8,7 @@
     using ThesisManager.Web.Helper;
     using ThesisManager.Web.Models.Account;
 
-    public class AccountController : Controller {
+    public class AccountController : BaseController {
         /// <summary>
         ///     Legt das Objekt fest, dass für die Authentifizierung des Nutzers verantwortlich ist.
         /// </summary>
@@ -56,12 +56,13 @@
                 if (!canLogin) {
                     //Logger.Warn("Fehlgeschlagener Anmeldeversuch mit ungültigen Nutzerdaten. [" + credentials.Username + "].");
                     ModelState.AddModelError(credentials.GetPropertyName(m => m.Login), "Ungültige Anmeldedaten!");
+                } else {
+                    AuthenticationManager.Login(credentials.Login);
+
+                    //Logger.Info("Der Nutzer [" + credentials.Username + "] hat sich angemeldet.");
+
+                    return RedirectToAction("Index", "Thesis");
                 }
-                AuthenticationManager.Login(credentials.Login);
-
-                //Logger.Info("Der Nutzer [" + credentials.Username + "] hat sich angemeldet.");
-
-                return RedirectToAction("Index", "Home");
             } catch (Exception ex) {
                 //Logger.Error("Beim Anmelden eines Nutzers [" + credentials.Username + "] ist ein Fehler aufgetreten. ", ex);
                 ModelState.AddModelError("", "Fehler bei der Anmeldung");

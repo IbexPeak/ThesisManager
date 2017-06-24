@@ -1,5 +1,5 @@
 ﻿namespace ThesisManager.Web.Controllers {
-    public class UserController {
+    public class UserController:BaseController {
         
     }
 }

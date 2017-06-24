@@ -17,9 +17,15 @@
           singleton="false"
           autowire="autodetect">
   </object>
+
+  <object id="errorController"
+          type="ThesisManager.Web.Controllers.ErrorController, ThesisManager.Web"
+          singleton="false"
+          autowire="autodetect">
+  </object>
   
-  <object id="homeController"
-          type="ThesisManager.Web.Controllers.HomeController, ThesisManager.Web"
+  <object id="applicationController"
+          type="ThesisManager.Web.Controllers.ApplicationController, ThesisManager.Web"
           singleton="false"
           autowire="autodetect">
   </object>

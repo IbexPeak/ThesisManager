@@ -1,0 +1,10 @@
+﻿@using ThesisManager.Web.Controllers
+@if (TempData.ContainsKey(BaseController.ERROR_ALERT_KEY)) {
+    <div class="alert alert-danger fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true"></span>
+            <span class="sr-only"></span>
+        </button>
+        @TempData[BaseController.ERROR_ALERT_KEY]
+    </div>
+}

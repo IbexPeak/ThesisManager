@@ -152,8 +152,12 @@
     <Compile Include="Areas\FormsAuthenticationManager.cs" />
     <Compile Include="Areas\IAuthenticationManager.cs" />
     <Compile Include="Attributes\AuthenticateAndAuthorizeAttribute.cs" />
+    <Compile Include="Attributes\NoCachingAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ThesisController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -162,6 +166,17 @@
     <Compile Include="Helper\HtmlHelperExtension.cs" />
     <Compile Include="Helper\ObjectHelper.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Menu\ActionLink.cs" />
+    <Compile Include="Models\Menu\ActionUrl.cs" />
+    <Compile Include="Models\Menu\DropDownMenuItemViewModel.cs" />
+    <Compile Include="Models\Menu\INavigatingMenuItem.cs" />
+    <Compile Include="Models\Menu\MenuItemViewModel.cs" />
+    <Compile Include="Models\Menu\MenuViewModel.cs" />
+    <Compile Include="Models\Menu\SeparatorMenuItemViewModel.cs" />
+    <Compile Include="Models\Menu\SimpleMenuItemViewModel.cs" />
+    <Compile Include="Models\Shared\ConfirmDialogViewModel.cs" />
+    <Compile Include="Models\Shared\ErrorViewModel.cs" />
+    <Compile Include="Models\Shared\MessageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -217,10 +232,19 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Application\About.cshtml" />
+    <Content Include="Views\Application\Contact.cshtml" />
+    <Content Include="Views\Application\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\ConfirmOverlay.cshtml" />
+    <Content Include="Views\Shared\ErrorAlert.cshtml" />
+    <Content Include="Views\Shared\ErrorOverlay.cshtml" />
+    <Content Include="Views\Shared\ErrorPartial.cshtml" />
+    <Content Include="Views\Shared\MenuPartial.cshtml" />
+    <Content Include="Views\Shared\Message.cshtml" />
+    <Content Include="Views\Shared\MessageAlert.cshtml" />
+    <Content Include="Views\Shared\MessageOverlay.cshtml" />
+    <Content Include="Views\Shared\_ModalLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
