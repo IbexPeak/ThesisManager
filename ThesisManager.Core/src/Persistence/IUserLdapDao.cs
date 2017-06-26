@@ -40,9 +40,10 @@
         void Save(User user);
 
         /// <summary>
-        ///     Aktualisiert einen <see cref="User" /> mit den Daten aus dem Ldap.
+        /// Liefert einen Nutzer aus dem Ldap.
         /// </summary>
-        /// <param name="user">Der User</param>
-        void SetupUser(User user);
+        /// <param name="login">Der Login</param>
+        /// <returns></returns>
+        User Get(string login);
     }
 }

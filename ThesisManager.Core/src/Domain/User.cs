@@ -11,34 +11,30 @@
     public class User : DomainEntityWithId, IPrincipal, IIdentity {
         private readonly bool _isAuthenticated;
         private readonly string _password;
-        private DateTime? _birthday;
-        private string _city;
-        private string _email;
-        private string _firstname;
-        private string _housenumber;
-        private string _lastname;
-        private string _phone;
-        private string _street;
-
-        private IList<UserPermission> _userPermissions = new List<UserPermission>();
+        private readonly DateTime? _birthday;
+        private readonly string _city;
+        private readonly string _email;
+        private readonly string _firstname;
+        private readonly string _housenumber;
+        private readonly string _lastname;
+        private readonly string _phone;
+        private readonly string _street;
+        
         private UserType _userType;
-        private string _zipcode;
+        private readonly string _zipcode;
+        private readonly string _login;
 
         /// <summary>
         ///     Konstruktur zum Erstellen eines Nutzers für die DB.
         /// </summary>
         /// <param name="login">Der Login des Nutzers</param>
         /// <param name="userType">Der Typ des Nutzers</param>
-        /// <param name="userPermissions">Die Liste der Berechtigungen des Nutzers</param>
-        public User(string login, UserType userType, IList<UserPermission> userPermissions) {
+        public User(string login, UserType userType) {
             if (login == null) {
                 throw new ArgumentNullException(nameof(login));
             }
-            if (userPermissions == null) {
-                throw new ArgumentNullException(nameof(userPermissions));
-            }
-            Login = login;
-            UpdateUser(userType, userPermissions);
+            _login = login;
+            UpdateUser(userType);
         }
 
         /// <summary>
@@ -46,12 +42,21 @@
         /// </summary>
         public User(string login, string firstname, string lastname, string street, string housenumber, string zipcode, string city,
                     string email, string phone, DateTime birthday, string password) {
-            Login = login;
+            _login = login;
 
             _password = password;
-            SetupUser(firstname, lastname, street, housenumber, zipcode, city, email, phone, birthday);
-        }
 
+            _birthday = birthday;
+            _city = city;
+            _email = email;
+            _firstname = firstname;
+            _housenumber = housenumber;
+            _lastname = lastname;
+            _phone = phone;
+            _street = street;
+            _zipcode = zipcode;
+        }
+        
         /// <summary>
         ///     Hibernate-Konstruktor.
         /// </summary>
@@ -103,7 +108,9 @@
         /// <summary>
         ///     Liefert den Login. Kommt aus der DB und dem LDAP.
         /// </summary>
-        public string Login { get; }
+        public string Login {
+            get { return _login; }
+        }
 
         public string Name {
             get { return Login; }
@@ -125,11 +132,6 @@
         public string Street => _street;
 
         /// <summary>
-        ///     Liefert die Rechte des Nutzers. Kommt aus der Datenbank.
-        /// </summary>
-        public IList<UserPermission> UserPermissions => _userPermissions;
-
-        /// <summary>
         ///     Liefert den Nutzertyp. Kommt aus der DB. Wird vom Administrator gepflegt.
         /// </summary>
         public UserType UserType => _userType;
@@ -144,42 +146,11 @@
         }
 
         /// <summary>
-        ///     Trägt die LDAP-Daten eines Nutzers ein.
-        /// </summary>
-        /// <param name="firstname">Vorname</param>
-        /// <param name="lastname">Nachname</param>
-        /// <param name="street">Straße</param>
-        /// <param name="housenumber">Hausnummer</param>
-        /// <param name="zipcode">PLZ</param>
-        /// <param name="city">Stadt</param>
-        /// <param name="email">Mail</param>
-        /// <param name="phone">Telefon</param>
-        /// <param name="birthday">Geb.-Datum</param>
-        /// <param name="password">LDAP-Passwort</param>
-        public void SetupUser(string firstname, string lastname, string street, string housenumber, string zipcode, string city,
-                              string email, string phone, DateTime? birthday) {
-            _birthday = birthday;
-            _city = city;
-            _email = email;
-            _firstname = firstname;
-            _housenumber = housenumber;
-            _lastname = lastname;
-            _phone = phone;
-            _street = street;
-            _zipcode = zipcode;
-        }
-
-        /// <summary>
         ///     Aktualisiert einen Nutzer in der DB.
         /// </summary>
         /// <param name="userType">Der Typ des Nutzers</param>
-        /// <param name="userPermissions">Die Liste der Berechtigungen des Nutzers</param>
-        public void UpdateUser(UserType userType, IList<UserPermission> userPermissions) {
-            if (userPermissions == null) {
-                throw new ArgumentNullException(nameof(userPermissions));
-            }
+        public void UpdateUser(UserType userType) {
             _userType = userType;
-            _userPermissions = userPermissions;
         }
     }
 }

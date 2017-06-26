@@ -10,7 +10,7 @@
 
   <db:provider id="dbProvider"
                provider="SQLite-1.0.105.2"
-               connectionString="Data Source=C:\Develop\Studium\ThesisManager\ThesisManager.Web\database.sqlite;Version=3;" />
+               connectionString="Data Source=C:\Develop\Studium\ThesisManager\ThesisManager.Web\bin\database.sqlite;Version=3;" />
 
   <db:additionalProviders resource="assembly://ThesisManager.Core/ThesisManager.Core.Config/SqLiteProvider_1.0.105.2.xml" />
 

@@ -1,6 +1,7 @@
 ﻿namespace ThesisManager.Core.Service {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     using ThesisManager.Core.Domain;
     using ThesisManager.Core.Persistence;
@@ -45,27 +46,39 @@
             return UserLdapDao.CanLogin(login, password);
         }
 
+        public override IList<User> GetAll() {
+            IList<User> db = UserDbDao.GetAll();
+            IList<User> ldap = UserLdapDao.GetAll();
+
+            IList<User> result = new List<User>();
+
+            foreach (User ldapUser in ldap) {
+                User dbUser = db.SingleOrDefault(m => Equals(m.Login, ldapUser.Login));
+                if (dbUser != null) {
+                    ldapUser.UpdateUser(dbUser.UserType);
+                    result.Add(ldapUser);
+                }
+            }
+            return result;
+        }
+
         /// <summary>
         ///     Methode zum Erstellen eines Nutzers.
         /// </summary>
         /// <param name="login">Der Login des Nutzers</param>
         /// <param name="userType">Der Typ des Nutzers</param>
-        /// <param name="userPermissions">Die Liste der Berechtigungen des Nutzers</param>
-        public User Create(string login, UserType userType, IList<UserPermission> userPermissions) {
+        public User Create(string login, UserType userType) {
             if (login == null) {
                 throw new ArgumentNullException(nameof(login));
-            }
-            if (userPermissions == null) {
-                throw new ArgumentNullException(nameof(userPermissions));
             }
             if (!UserLdapDao.IsUserExisting(login)) {
                 throw new InvalidOperationException();
             }
-            User user = new User(login, userType, userPermissions);
+            User user = UserLdapDao.Get(login);
+
+            user.UpdateUser(userType);
 
             UserDbDao.Save(user);
-
-            UserLdapDao.SetupUser(user);
 
             return user;
         }
@@ -76,11 +89,13 @@
         /// <param name="login">Der Login</param>
         /// <returns></returns>
         public User Get(string login) {
-            User user = UserDbDao.GetUser(login);
 
-            UserLdapDao.SetupUser(user);
+            User ldapUser = UserLdapDao.Get(login);
+            User dbUser = UserDbDao.GetUser(login);
 
-            return user;
+            ldapUser.UpdateUser(dbUser.UserType);
+
+            return ldapUser;
         }
 
         /// <summary>
@@ -88,17 +103,13 @@
         /// </summary>
         /// <param name="login">Der Login des Nutzers</param>
         /// <param name="userType">Der Typ des Nutzers</param>
-        /// <param name="userPermissions">Die Liste der Berechtigungen des Nutzers</param>
-        public User Update(string login, UserType userType, IList<UserPermission> userPermissions) {
+        public User Update(string login, UserType userType) {
             if (login == null) {
                 throw new ArgumentNullException(nameof(login));
             }
-            if (userPermissions == null) {
-                throw new ArgumentNullException(nameof(userPermissions));
-            }
             User user = UserDbDao.GetUser(login);
 
-            user.UpdateUser(userType, userPermissions);
+            user.UpdateUser(userType);
 
             UserDbDao.Save(user);
 

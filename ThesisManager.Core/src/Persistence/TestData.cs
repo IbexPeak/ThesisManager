@@ -73,23 +73,30 @@
             UserLdapDao.Save(ldapUser3);
             UserLdapDao.Save(ldapUser4);
 
-            User dbUser1 = new User(login1, UserType.Student, new List<UserPermission>() { UserPermission.CanViewUsers });
+            User dbUser1 = new User(login1, UserType.Student);
             User dbUser2 = new User(login2,
-                                    UserType.Professor,
-                                    new List<UserPermission>() { UserPermission.CanViewUsers, UserPermission.CanManageUsers });
+                                    UserType.Professor);
 
             UserDbDao.Save(dbUser1);
             UserDbDao.Save(dbUser2);
+            UserDbDao.FlushAndClear();
+
+            IList<User> users = UserLdapDao.GetAll();
+            IList<User> list = UserDbDao.GetAll();
 
             _isTestDataGenerated = true;
         }
 
         private void ClearTestData() {
-            foreach (User user in UserLdapDao.GetAll()) {
+            IList<User> users = UserLdapDao.GetAll();
+            foreach (User user in users) {
                 UserLdapDao.Delete(user);
             }
-            foreach (User user in UserDbDao.GetAll()) {
+
+            users = UserDbDao.GetAll();
+            foreach (User user in users) {
                 UserDbDao.Delete(user);
+                UserDbDao.FlushAndClear();
             }
         }
     }

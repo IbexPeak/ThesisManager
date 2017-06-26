@@ -156,6 +156,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\Crud2Controller.cs" />
+    <Compile Include="Controllers\CrudController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ThesisController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -177,6 +179,8 @@
     <Compile Include="Models\Shared\ConfirmDialogViewModel.cs" />
     <Compile Include="Models\Shared\ErrorViewModel.cs" />
     <Compile Include="Models\Shared\MessageViewModel.cs" />
+    <Compile Include="Models\User\UserListModel.cs" />
+    <Compile Include="Models\User\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +249,8 @@
     <Content Include="Views\Shared\MessageAlert.cshtml" />
     <Content Include="Views\Shared\MessageOverlay.cshtml" />
     <Content Include="Views\Shared\_ModalLayout.cshtml" />
+    <Content Include="Views\User\CreateUser.cshtml" />
+    <Content Include="Views\User\ListUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,28 @@
+﻿@using ThesisManager.Web.Helper
+@model ThesisManager.Web.Models.User.UserViewModel
+
+@{
+    ViewBag.Title = "Nutzer erstellen";
+    Layout = "~/Views/Shared/_ModalLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Create", "User", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+
+    @Html.BootstrapLabelAndDisplayFor(m => m.Login)
+    @Html.BootstrapLabelAndDisplayFor(m => m.Firstname)
+    @Html.BootstrapLabelAndDisplayFor(m => m.Lastname)
+    @Html.BootstrapLabelAndDisplayFor(m => m.Email)
+    @Html.BootstrapLabelAndDisplayFor(m => m.Phone)
+    @Html.BootstrapLabelAndDisplayFor(m => m.Street)
+    @Html.BootstrapLabelAndDisplayFor(m => m.Housenumber)
+    @Html.BootstrapLabelAndDisplayFor(m => m.Zipcode)
+    @Html.BootstrapLabelAndDisplayFor(m => m.City)
+    @Html.BootstrapLabelAndDropDownFor(m => m.UserType, new SelectList(Model.SelectableUserTypes))
+}
+
+@Scripts.Render("~/bundles/chosen")

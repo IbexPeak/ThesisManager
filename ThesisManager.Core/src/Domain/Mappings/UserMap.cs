@@ -11,7 +11,6 @@
         protected UserMap() {
             Map(m => m.Login);
             Map(m => m.UserType).CustomType<UserType>();
-            HasMany(x => x.UserPermissions).Cascade.All().Table("tblUserPermission").Element("Permission");
         }
     }
 }
