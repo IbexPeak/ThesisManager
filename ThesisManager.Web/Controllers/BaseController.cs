@@ -12,7 +12,6 @@
     /// <summary>
     ///     Diese Controller-Klasse stellt die Basis-Klasse für alle Controller der Webanwendung dar. Jeder in der Anwendung
     ///     verwendete Controller muss von dieser Klasse erben.
-    ///     Der Controller beinhaltet die Unterstützung für Mehrsprachigkeit.
     /// </summary>
     [NoCaching]
     public class BaseController : Controller {

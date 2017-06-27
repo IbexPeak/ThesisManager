@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0"
   encoding="utf-8" ?>
 
+<!--Konfiguration der Controller. Properties werden per Autowire befüllt.-->
 <objects xmlns="http://www.springframework.net"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.springframework.net
@@ -23,7 +24,7 @@
           singleton="false"
           autowire="autodetect">
   </object>
-  
+
   <object id="applicationController"
           type="ThesisManager.Web.Controllers.ApplicationController, ThesisManager.Web"
           singleton="false"

@@ -8,9 +8,9 @@
          xmlns:db="http://www.springframework.net/database"
          xmlns:tx="http://www.springframework.net/tx">
 
+  <!--Konfig des Testdaten-Objektes-->
   <object id="testData"
           type="ThesisManager.Core.Persistence.TestData, ThesisManager.Core">
-
     <property name="UserDbDao"
               ref="userDbDao" />
     <property name="UserLdapDao"

@@ -12,6 +12,13 @@
         private readonly Thesis _thesis;
         private readonly User _user;
 
+        /// <summary>
+        ///     Erstellt ein neuen Credit.
+        /// </summary>
+        /// <param name="user">Der Nutzer</param>
+        /// <param name="thesis">Die Abschlussarbeit</param>
+        /// <param name="subject">Das Fach</param>
+        /// <param name="amount">Die Anzahl der Credits</param>
         public Credit(User user, Thesis thesis, string subject, int amount) {
             if (user == null) {
                 throw new ArgumentNullException(nameof(user));
@@ -28,6 +35,9 @@
             _amount = amount;
         }
 
+        /// <summary>
+        ///     Hibernate-Konstruktor
+        /// </summary>
         protected Credit() {
         }
 

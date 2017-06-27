@@ -15,6 +15,9 @@
     using ThesisManager.Core.Service;
     using ThesisManager.Web.Controllers;
 
+    /// <summary>
+    /// Haupteinstiegspunkt der Anwendung.
+    /// </summary>
     public class MvcApplication : SpringMvcApplication {
         protected void Application_Error(object sender, EventArgs e) {
             ShowCustomErrorPage(Server.GetLastError());

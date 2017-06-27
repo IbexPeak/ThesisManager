@@ -5,6 +5,9 @@
 
     using ThesisManager.Web.Models.Shared;
 
+    /// <summary>
+    /// Basisklasse für alle Controller, die CRUD-Funktionalität bieten.
+    /// </summary>
     public class CrudController:BaseController {
         /// <summary>
         ///     Ruft das Element ab, das zum Schreiben von Log-Einträgen verwendet wird.

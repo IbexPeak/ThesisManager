@@ -42,10 +42,8 @@
         protected override void PostProcessConfiguration(Configuration config) {
             /* Basiskonfiguration durchführen */
             base.PostProcessConfiguration(config);
-
-            /* HBM Exportpfad */
-            //string schemaExportPath = Path.Combine(System.Environment.CurrentDirectory, ".");
-
+            
+            // Konfigurieren
             Fluently.Configure(config).Mappings(m => {
                                                     foreach (string assemblyName in MappingAssemblies) {
                                                         /* HBM Mappings der Konfiguration hinzufügen. */
@@ -69,6 +67,7 @@
 
             string filePath = connectionString.Replace("Data Source=", string.Empty).Replace(";Version=3;", string.Empty);
 
+            // .sqlite anlegen falls noch nicht vorhanden
             if (!File.Exists(filePath)) {
                 try {
                     SchemaExport schemaExport = new SchemaExport(config);

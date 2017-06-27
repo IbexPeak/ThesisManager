@@ -4,6 +4,9 @@
 
     using ThesisManager.Core.Domain.Core;
 
+    /// <summary>
+    /// Bildet eine Abschlussarbeit ab.
+    /// </summary>
     public class Thesis : DomainEntityWithId {
         private readonly DateTime? _createdOn;
         private readonly IList<User> _creators;
@@ -15,6 +18,9 @@
         private ThesisStatus _status;
         private string _topic;
 
+        /// <summary>
+        /// Hibernate-Konstruktor
+        /// </summary>
         protected Thesis() {
         }
 

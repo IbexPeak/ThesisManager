@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0"
   encoding="utf-8" ?>
 
+<!--Konfigurationsdatei für den DB-Zugriff .sqlite-->
+
 <objects xmlns="http://www.springframework.net"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns:db="http://www.springframework.net/database"
@@ -8,12 +10,15 @@
          xsi:schemaLocation="http://www.springframework.net 
              http://www.springframework.net/xsd/spring-objects.xsd">
 
+  <!--DB-Provider gibt den Provider an, der für den DB-Zugriff verwendet werden soll-->
   <db:provider id="dbProvider"
                provider="SQLite-1.0.105.2"
                connectionString="Data Source=C:\Develop\Studium\ThesisManager\ThesisManager.Web\bin\database.sqlite;Version=3;" />
 
+  <!--Zusätzlicher Sqlite-Provider ist bei Sqlite nötig-->
   <db:additionalProviders resource="assembly://ThesisManager.Core/ThesisManager.Core.Config/SqLiteProvider_1.0.105.2.xml" />
 
+  <!--Session-Factory von Spring, in dem Fall für Fluent .Nhibernate-->
   <object id="sessionFactory"
           type="ThesisManager.Core.Domain.Mappings.FluentSessionFactory, ThesisManager.Core">
     <property name="DbProvider"
@@ -30,7 +35,8 @@
                value="false" />
       </dictionary>
     </property>
-    
+
+    <!--Angabe der Assemblies, die die Mappings enthält-->
     <property name="MappingAssemblies">
       <list>
         <value>ThesisManager.Core</value>
@@ -38,6 +44,7 @@
     </property>
   </object>
 
+  <!--TransactionManager von Spring-->
   <object id="transactionManager"
           type="Spring.Data.NHibernate.HibernateTransactionManager, Spring.Data.NHibernate4">
     <property name="DbProvider"

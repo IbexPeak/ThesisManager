@@ -8,6 +8,7 @@
          xmlns:db="http://www.springframework.net/database"
          xmlns:tx="http://www.springframework.net/tx">
 
+  <!--Konfig der Service-Objekte-->
   <object id="userService"
           type="ThesisManager.Core.Service.UserService, ThesisManager.Core">
     <property name="UserDbDao"

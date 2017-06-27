@@ -1,6 +1,5 @@
 ﻿namespace ThesisManager.Core.Domain {
     using System;
-    using System.Collections.Generic;
     using System.Security.Principal;
 
     using ThesisManager.Core.Domain.Core;
@@ -9,20 +8,20 @@
     ///     Bildet einen Benutzer ab. Manche Properties kommen aus der DB, andere aus dem LDAP.
     /// </summary>
     public class User : DomainEntityWithId, IPrincipal, IIdentity {
-        private readonly bool _isAuthenticated;
-        private readonly string _password;
         private readonly DateTime? _birthday;
         private readonly string _city;
         private readonly string _email;
         private readonly string _firstname;
         private readonly string _housenumber;
+        private readonly bool _isAuthenticated;
         private readonly string _lastname;
+        private readonly string _login;
+        private readonly string _password;
         private readonly string _phone;
         private readonly string _street;
-        
-        private UserType _userType;
         private readonly string _zipcode;
-        private readonly string _login;
+
+        private UserType _userType;
 
         /// <summary>
         ///     Konstruktur zum Erstellen eines Nutzers für die DB.
@@ -56,7 +55,7 @@
             _street = street;
             _zipcode = zipcode;
         }
-        
+
         /// <summary>
         ///     Hibernate-Konstruktor.
         /// </summary>

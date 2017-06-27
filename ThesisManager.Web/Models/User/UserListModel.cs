@@ -8,6 +8,10 @@
     ///     Model, welches eine Tabellenzeile in der Nutzertabelle abbildet.
     /// </summary>
     public class UserListModel {
+        /// <summary>
+        /// Erstellt ein neues <see cref="UserListModel"/> anhand eines Nutzers
+        /// </summary>
+        /// <param name="user"></param>
         public UserListModel(User user) {
             if (user == null) {
                 throw new ArgumentNullException("user");
@@ -32,6 +36,9 @@
         [Display(Name = "Nachname")]
         public string Lastname { get; private set; }
 
+        /// <summary>
+        /// Ruft den Login des Nutzers ab.
+        /// </summary>
         [Display(Name = "Login")]
         public string Login { get; private set; }
 

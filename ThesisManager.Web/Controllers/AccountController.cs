@@ -8,6 +8,9 @@
     using ThesisManager.Web.Helper;
     using ThesisManager.Web.Models.Account;
 
+    /// <summary>
+    /// Controller für alles was den Account betrifft.
+    /// </summary>
     public class AccountController : BaseController {
         /// <summary>
         ///     Legt das Objekt fest, dass für die Authentifizierung des Nutzers verantwortlich ist.
@@ -41,12 +44,12 @@
 
         /// <summary>
         ///     Methode, die den Nutzer am System anmeldet, wenn die Anmeldedaten korrekt übergeben wurden.
-        ///     Bei Erfolgreicher Anmeldung erfolgt eine Weiterleitung zur Startseite des Adminbereichs. Andernfalls wird die
+        ///     Bei Erfolgreicher Anmeldung erfolgt eine Weiterleitung zur Abschlussarbeiten-Startseite. Andernfalls wird die
         ///     Login-Seite erneut angezeigt.
         ///     Das Cookie bleibt für den eingestellten Zeitraum und nur während der Browser-Sitzung aktiv.
         /// </summary>
-        /// <param name="credentials">Die Anmeldetdaten des Nutzers mit Nutzername und Kennwort.</param>
-        /// <returns>Weiterleitung zur Startseite.</returns>
+        /// <param name="credentials">Die Anmeldetdaten des Nutzers mit Login und Kennwort.</param>
+        /// <returns>Weiterleitung zur Abschlussarbeiten-Startseite.</returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

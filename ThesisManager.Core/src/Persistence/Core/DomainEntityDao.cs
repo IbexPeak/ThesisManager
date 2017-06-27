@@ -9,6 +9,8 @@
     using Spring.Data.NHibernate.Generic;
     using Spring.Data.NHibernate.Generic.Support;
 
+    using ThesisManager.Core.Domain.Core;
+
     /// <summary>
     /// Generische Basisklasse für alle DAOs, die sich um DomainEntities kümmern.
     /// T muss vom Typ <see cref="DomainEntity"/> sein.

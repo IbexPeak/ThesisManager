@@ -14,6 +14,12 @@
         private User _changedBy;
 
         /// <summary>
+        /// Hibernate-Konstruktor
+        /// </summary>
+        protected HistoryEntry() {
+        }
+
+        /// <summary>
         ///     Liefert oder setzt den Nutzer, der den Eintrag geändert hat.
         /// </summary>
         public User ChangedBy {

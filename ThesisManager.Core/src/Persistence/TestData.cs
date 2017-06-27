@@ -4,18 +4,32 @@
 
     using ThesisManager.Core.Domain;
 
+    /// <summary>
+    ///     Bildet eine Klasse ab, die Testdaten löschen und neu erzeugen kann.
+    /// </summary>
     public class TestData {
-
         private bool _isTestDataGenerated;
 
+        /// <summary>
+        ///     Liefert oder setzt <see cref="IUserDbDao" />.
+        /// </summary>
         public IUserDbDao UserDbDao { private get; set; }
 
+        /// <summary>
+        ///     Liefert oder setzt den <see cref="IUserLdapDao" />
+        /// </summary>
         public IUserLdapDao UserLdapDao { private get; set; }
 
+        /// <summary>
+        ///     Generiert Testdaten.
+        /// </summary>
         public void GenerateTestData() {
+            // Falls schon Testdaten generiert wurden, dann Abbruch.
             if (_isTestDataGenerated) {
                 return;
             }
+
+            // Vorhandene Daten löschen
             ClearTestData();
 
             string login1 = "s74022";
@@ -74,8 +88,7 @@
             UserLdapDao.Save(ldapUser4);
 
             User dbUser1 = new User(login1, UserType.Student);
-            User dbUser2 = new User(login2,
-                                    UserType.Professor);
+            User dbUser2 = new User(login2, UserType.Professor);
 
             UserDbDao.Save(dbUser1);
             UserDbDao.Save(dbUser2);

@@ -6,7 +6,13 @@
     using ThesisManager.Web.Areas;
     using ThesisManager.Web.Models.Shared;
 
+    /// <summary>
+    /// Controller für alles was Fehler betrifft.
+    /// </summary>
     public class ErrorController : Controller {
+        /// <summary>
+        /// Liefert oder setzt den <see cref="IAuthenticationManager"/>.
+        /// </summary>
         public IAuthenticationManager AuthenticationManager { private get; set; }
 
         private ILog Logger {

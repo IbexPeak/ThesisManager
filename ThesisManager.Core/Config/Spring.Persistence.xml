@@ -8,7 +8,7 @@
          xmlns:db="http://www.springframework.net/database"
          xmlns:tx="http://www.springframework.net/tx">
 
-  <!-- Datenbankobjekte -->
+  <!-- Konfig der Datenbankobjekte (DAOs)-->
   <object id="userDbDao"
           type="ThesisManager.Core.Persistence.UserDbDao, ThesisManager.Core">
     <property name="SessionFactory"

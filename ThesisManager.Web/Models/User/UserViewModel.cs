@@ -6,6 +6,9 @@
 
     using ThesisManager.Core.Domain;
 
+    /// <summary>
+    ///     Bildet ein VM zur Bearbeitung eines Nutzers ab.
+    /// </summary>
     public class UserViewModel {
         private readonly DateTime? _birthday;
         private readonly string _city;
@@ -17,7 +20,7 @@
         private readonly string _phone;
         private readonly string _street;
         private readonly string _zipcode;
-        
+
         private UserType _userType;
 
         /// <summary>
@@ -42,8 +45,6 @@
             _userType = user.UserType;
         }
 
-        public IList<UserType> SelectableUserTypes { get; private set; }
-
         [Display(Name = "Geburtsdatum")]
         public DateTime? Birthday => _birthday;
 
@@ -67,6 +68,11 @@
 
         [Display(Name = "Telefon")]
         public string Phone => _phone;
+
+        /// <summary>
+        ///     Liefert die auswählbaren Nutzertypen.
+        /// </summary>
+        public IList<UserType> SelectableUserTypes { get; private set; }
 
         [Display(Name = "Straße")]
         public string Street => _street;
