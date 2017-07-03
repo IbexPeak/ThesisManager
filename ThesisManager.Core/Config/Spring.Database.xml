@@ -13,7 +13,7 @@
   <!--DB-Provider gibt den Provider an, der für den DB-Zugriff verwendet werden soll-->
   <db:provider id="dbProvider"
                provider="SQLite-1.0.105.2"
-               connectionString="Data Source=C:\Develop\Studium\ThesisManager\ThesisManager.Web\bin\database.sqlite;Version=3;" />
+               connectionString="Data Source=C:\Develop\Studium\ThesisManager2\ThesisManager.Web\bin\database.sqlite;Version=3;" />
 
   <!--Zusätzlicher Sqlite-Provider ist bei Sqlite nötig-->
   <db:additionalProviders resource="assembly://ThesisManager.Core/ThesisManager.Core.Config/SqLiteProvider_1.0.105.2.xml" />
