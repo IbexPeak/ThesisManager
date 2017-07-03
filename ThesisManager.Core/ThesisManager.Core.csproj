@@ -84,7 +84,10 @@
     <Compile Include="src\Domain\Mappings\Core\DomainEntityMap.cs" />
     <Compile Include="src\Domain\Mappings\Core\DomainEntityWithIdAndNameMap.cs" />
     <Compile Include="src\Domain\Mappings\Core\DomainEntityWithIdMap.cs" />
+    <Compile Include="src\Domain\Mappings\CreditMap.cs" />
     <Compile Include="src\Domain\Mappings\FluentSessionFactory.cs" />
+    <Compile Include="src\Domain\Mappings\HistoryEntryMap.cs" />
+    <Compile Include="src\Domain\Mappings\ThesisMap.cs" />
     <Compile Include="src\Domain\Mappings\UserMap.cs" />
     <Compile Include="src\Domain\Thesis.cs" />
     <Compile Include="src\Domain\ThesisStatus.cs" />

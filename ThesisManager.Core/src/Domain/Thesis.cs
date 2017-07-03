@@ -34,7 +34,7 @@
         /// <summary>
         ///     Liefert die Ersteller der Abschlussarbeit.
         /// </summary>
-        public IList<User> Creator {
+        public IList<User> Creators {
             get { return _creators; }
         }
 
